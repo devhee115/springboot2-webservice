@@ -1,7 +1,7 @@
 buildscript {
 
     ext {
-        springBootVersion = '2.1.7.Release'
+        springBootVersion = '2.1.7.RELEASE'
     }
 
     repositories {
@@ -28,7 +28,9 @@ repositories {
 }
 
 dependencies {
-    compile('org.springframework.boot:spring-boot-starter-web')
-    testCompile('org.springframework.boot:spring-boot-starter-test')
+   // compile('org.springframework.boot:spring-boot-starter-web')
+    // testCompile('org.springframework.boot:spring-boot-starter-test')
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
 
 }
