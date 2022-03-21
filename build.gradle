@@ -14,11 +14,14 @@ buildscript {
     }
 }
 
-apply plugin : 'java'
-apply plugin : 'eclipse'
-apply plugin : 'org.springframework.boot'
-apply plugin : 'io.spring.dependency-management'
-
+plugins{
+    id 'java'
+    id 'org.springframework.boot' version '2.4.1'
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+}
+test {
+    useJUnitPlatform()
+}
 group 'com.book'
 version '1.0-SNAPSHOT'
 sourceCompatibility = 1.8
@@ -31,6 +34,17 @@ dependencies {
    // compile('org.springframework.boot:spring-boot-starter-web')
     // testCompile('org.springframework.boot:spring-boot-starter-test')
     implementation('org.springframework.boot:spring-boot-starter-web')
+
+    // lombok
+    implementation('org.projectlombok:lombok')
+    annotationProcessor('org.projectlombok:lombok')
+    testImplementation('org.projectlombok:lombok')
+    testAnnotationProcessor('org.projectlombok:lombok')
+
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+    implementation('com.h2database:h2')
+    implementation('org.springframework.boot:spring-boot-starter-mustache')
+    implementation 'org.junit.jupiter:junit-jupiter:5.8.1'
     testImplementation('org.springframework.boot:spring-boot-starter-test')
 
 }
