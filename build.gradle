@@ -54,4 +54,6 @@ dependencies {
     //session clustering
     implementation('org.springframework.session:spring-session-jdbc')
 
+    //maria DB 드라이버
+    implementation('org.mariadb.jdbc:mariadb-java-client')
 }
