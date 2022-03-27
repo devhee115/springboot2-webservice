@@ -31,7 +31,19 @@ deploy:
     skip_cleanup: true
     acl: private #zip 파일 접근을 private으로
     local_dir: deploy #before_deploy에서 생성한 디렉토리
-    wait-until-deploy: true
+    wait-until-deployed: true
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY #Travis repo settings에 설정
+    secret_access_key: $AWS_SECRET_KEY #Travis repo settings에 설정
+    bucket: freelec-ldh-springboot-build #s3 버킷
+    key: springboot2-webservice.zip
+    bundle_type : zip
+    application: freelec-springboot2-webservice
+    deployment_group: freelec-springboot2-webservice-group
+    region: ap-northeast-2
+    wait-until-deployed: true
+
+
 
 #CI 실행 완료 시 메일로 알람
 notifications:
